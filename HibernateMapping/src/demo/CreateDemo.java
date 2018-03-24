@@ -45,7 +45,10 @@ public class CreateDemo {
 
             session.getTransaction().commit();
 
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
+            session.close();
             factory.close();
         }
 
