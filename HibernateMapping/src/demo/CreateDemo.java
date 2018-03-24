@@ -24,17 +24,24 @@ public class CreateDemo {
 
         Session session = factory.getCurrentSession();
 
-        Instructor instructor = new Instructor("Matt", "Jones", "mj@gmao;.com");
+//        Instructor instructor = new Instructor("Matt", "Jones", "mj@gmao;.com");
+//
+//        InstructorDetail instructorDetail = new InstructorDetail("yout", "football");
+//
+//        instructor.setInstructorDetail(instructorDetail);
 
-        InstructorDetail instructorDetail = new InstructorDetail("yout", "football");
-
-        instructor.setInstructorDetail(instructorDetail);
+        int instructorDetailId = 105;
 
         try {
             session.beginTransaction();
 
             // save all because of cascade
-            session.save(instructor);
+//            session.save(instructor);
+
+            InstructorDetail instructorDetail =
+                    session.get(InstructorDetail.class, instructorDetailId);
+
+            System.out.println(instructorDetail);
 
             session.getTransaction().commit();
 
